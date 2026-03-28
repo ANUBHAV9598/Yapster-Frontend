@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oxygen:wght@300;400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Avenir Next", "Trebuchet MS", "Segoe UI Variable", sans-serif;
+}
+
+@layer base {
+  :root {
+    --app-bg-start: #f5efe4;
+    --app-bg-end: #eadfcf;
+    --app-orb-1: rgba(198, 93, 46, 0.18);
+    --app-orb-2: rgba(123, 154, 127, 0.16);
+    --app-surface: rgba(255, 250, 242, 0.88);
+    --app-surface-strong: rgba(255, 251, 244, 0.92);
+    --app-surface-soft: rgba(248, 242, 232, 0.88);
+    --app-border: rgba(76, 52, 30, 0.16);
+    --app-border-strong: rgba(76, 52, 30, 0.22);
+    --app-text: #27170b;
+    --app-text-muted: #715c4a;
+    --app-text-soft: #8f3414;
+    --app-accent: #c65d2e;
+    --app-accent-strong: #8f3414;
+    --app-accent-soft: rgba(198, 93, 46, 0.12);
+    --app-accent-contrast: #fffaf4;
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.62);
+    --app-button-subtle-border: rgba(198, 93, 46, 0.22);
+    --app-button-subtle-text: #8f3414;
+    --app-input-bg: rgba(255, 255, 255, 0.86);
+    --app-input-text: #27170b;
+    --app-focus-ring: rgba(198, 93, 46, 0.12);
+    --app-danger-bg: rgba(255, 241, 236, 0.95);
+    --app-danger-border: rgba(143, 52, 20, 0.18);
+    --app-danger-text: #8f3414;
+    --app-message-mine: rgba(182, 224, 180, 0.7);
+    --app-message-other: rgba(255, 255, 255, 0.92);
+    --app-online: #22c55e;
+    --app-offline: #b5a28b;
+  }
+
+  :root[data-theme="forest"] {
+    --app-bg-start: #e7efe5;
+    --app-bg-end: #d4e0cf;
+    --app-orb-1: rgba(88, 138, 104, 0.22);
+    --app-orb-2: rgba(182, 214, 165, 0.18);
+    --app-surface: rgba(244, 249, 241, 0.9);
+    --app-surface-strong: rgba(247, 251, 244, 0.94);
+    --app-surface-soft: rgba(234, 242, 228, 0.9);
+    --app-border: rgba(44, 87, 56, 0.14);
+    --app-border-strong: rgba(44, 87, 56, 0.2);
+    --app-text: #193322;
+    --app-text-muted: #4d6555;
+    --app-accent: #4d7b5b;
+    --app-accent-strong: #2c5738;
+    --app-accent-soft: rgba(77, 123, 91, 0.12);
+    --app-button-subtle-border: rgba(77, 123, 91, 0.22);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.64);
+    --app-button-subtle-text: #2c5738;
+    --app-input-bg: rgba(255, 255, 255, 0.9);
+    --app-input-text: #193322;
+    --app-focus-ring: rgba(77, 123, 91, 0.14);
+    --app-text-soft: #2c5738;
+    --app-danger-text: #7a3222;
+    --app-message-mine: rgba(181, 224, 188, 0.82);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #97a99d;
+  }
+
+  :root[data-theme="ocean"] {
+    --app-bg-start: #e4eef3;
+    --app-bg-end: #cfdee6;
+    --app-orb-1: rgba(53, 124, 165, 0.2);
+    --app-orb-2: rgba(90, 176, 196, 0.2);
+    --app-surface: rgba(243, 249, 252, 0.9);
+    --app-surface-strong: rgba(246, 251, 253, 0.94);
+    --app-surface-soft: rgba(233, 243, 248, 0.9);
+    --app-border: rgba(25, 78, 104, 0.14);
+    --app-border-strong: rgba(25, 78, 104, 0.2);
+    --app-text: #123140;
+    --app-text-muted: #4a6674;
+    --app-accent: #2e7394;
+    --app-accent-strong: #194e68;
+    --app-accent-soft: rgba(46, 115, 148, 0.12);
+    --app-button-subtle-border: rgba(46, 115, 148, 0.22);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.64);
+    --app-button-subtle-text: #194e68;
+    --app-input-bg: rgba(255, 255, 255, 0.9);
+    --app-input-text: #123140;
+    --app-focus-ring: rgba(46, 115, 148, 0.14);
+    --app-text-soft: #194e68;
+    --app-danger-text: #8f3414;
+    --app-message-mine: rgba(181, 221, 237, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #8ea5b0;
+  }
+
+  :root[data-theme="rose"] {
+    --app-bg-start: #f7e8eb;
+    --app-bg-end: #ecd5db;
+    --app-orb-1: rgba(196, 95, 125, 0.2);
+    --app-orb-2: rgba(235, 182, 198, 0.22);
+    --app-surface: rgba(255, 246, 248, 0.9);
+    --app-surface-strong: rgba(255, 249, 250, 0.94);
+    --app-surface-soft: rgba(245, 230, 235, 0.9);
+    --app-border: rgba(124, 64, 83, 0.14);
+    --app-border-strong: rgba(124, 64, 83, 0.2);
+    --app-text: #3f1f2c;
+    --app-text-muted: #72525d;
+    --app-text-soft: #a34a66;
+    --app-accent: #c45f7d;
+    --app-accent-strong: #8d3b57;
+    --app-accent-soft: rgba(196, 95, 125, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(196, 95, 125, 0.22);
+    --app-button-subtle-text: #8d3b57;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #3f1f2c;
+    --app-focus-ring: rgba(196, 95, 125, 0.16);
+    --app-danger-text: #8d2f45;
+    --app-message-mine: rgba(243, 206, 216, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #b59ba3;
+  }
+
+  :root[data-theme="lavender"] {
+    --app-bg-start: #efe9f7;
+    --app-bg-end: #ddd4ea;
+    --app-orb-1: rgba(143, 110, 196, 0.2);
+    --app-orb-2: rgba(202, 188, 235, 0.22);
+    --app-surface: rgba(249, 246, 255, 0.9);
+    --app-surface-strong: rgba(251, 249, 255, 0.94);
+    --app-surface-soft: rgba(238, 233, 247, 0.9);
+    --app-border: rgba(81, 60, 118, 0.14);
+    --app-border-strong: rgba(81, 60, 118, 0.2);
+    --app-text: #2d2340;
+    --app-text-muted: #605472;
+    --app-text-soft: #6f58a8;
+    --app-accent: #8f6ec4;
+    --app-accent-strong: #5f4594;
+    --app-accent-soft: rgba(143, 110, 196, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(143, 110, 196, 0.22);
+    --app-button-subtle-text: #5f4594;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #2d2340;
+    --app-focus-ring: rgba(143, 110, 196, 0.16);
+    --app-danger-text: #913c6d;
+    --app-message-mine: rgba(219, 208, 245, 0.86);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #a39ab7;
+  }
+
+  :root[data-theme="midnight"] {
+    --app-bg-start: #dfe7f2;
+    --app-bg-end: #c8d5e5;
+    --app-orb-1: rgba(56, 87, 135, 0.22);
+    --app-orb-2: rgba(123, 154, 196, 0.2);
+    --app-surface: rgba(244, 248, 252, 0.9);
+    --app-surface-strong: rgba(248, 251, 255, 0.94);
+    --app-surface-soft: rgba(229, 237, 247, 0.9);
+    --app-border: rgba(38, 60, 98, 0.16);
+    --app-border-strong: rgba(38, 60, 98, 0.22);
+    --app-text: #17253b;
+    --app-text-muted: #4a5f79;
+    --app-text-soft: #385787;
+    --app-accent: #496ba3;
+    --app-accent-strong: #29456f;
+    --app-accent-soft: rgba(73, 107, 163, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.62);
+    --app-button-subtle-border: rgba(73, 107, 163, 0.22);
+    --app-button-subtle-text: #29456f;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #17253b;
+    --app-focus-ring: rgba(73, 107, 163, 0.16);
+    --app-danger-text: #8a3a2c;
+    --app-message-mine: rgba(196, 215, 239, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #92a0b4;
+  }
+
+  :root[data-theme="graphite"] {
+    --app-bg-start: #eceef1;
+    --app-bg-end: #d7dce3;
+    --app-orb-1: rgba(86, 95, 111, 0.2);
+    --app-orb-2: rgba(171, 180, 193, 0.22);
+    --app-surface: rgba(249, 250, 252, 0.9);
+    --app-surface-strong: rgba(252, 253, 255, 0.95);
+    --app-surface-soft: rgba(236, 239, 243, 0.9);
+    --app-border: rgba(70, 80, 95, 0.15);
+    --app-border-strong: rgba(70, 80, 95, 0.22);
+    --app-text: #1f2733;
+    --app-text-muted: #596473;
+    --app-text-soft: #414b5c;
+    --app-accent: #5f6b80;
+    --app-accent-strong: #3e495b;
+    --app-accent-soft: rgba(95, 107, 128, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.68);
+    --app-button-subtle-border: rgba(95, 107, 128, 0.22);
+    --app-button-subtle-text: #3e495b;
+    --app-input-bg: rgba(255, 255, 255, 0.94);
+    --app-input-text: #1f2733;
+    --app-focus-ring: rgba(95, 107, 128, 0.16);
+    --app-danger-text: #8a3c30;
+    --app-message-mine: rgba(214, 220, 230, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.96);
+    --app-offline: #95a0ad;
+  }
+
+  :root[data-theme="emerald"] {
+    --app-bg-start: #e3f2eb;
+    --app-bg-end: #cfe3d7;
+    --app-orb-1: rgba(43, 138, 96, 0.2);
+    --app-orb-2: rgba(154, 219, 194, 0.22);
+    --app-surface: rgba(244, 252, 248, 0.9);
+    --app-surface-strong: rgba(248, 253, 250, 0.95);
+    --app-surface-soft: rgba(230, 244, 236, 0.9);
+    --app-border: rgba(28, 92, 66, 0.14);
+    --app-border-strong: rgba(28, 92, 66, 0.2);
+    --app-text: #16352a;
+    --app-text-muted: #4b6d61;
+    --app-text-soft: #1e8a60;
+    --app-accent: #2b8a60;
+    --app-accent-strong: #1c5c42;
+    --app-accent-soft: rgba(43, 138, 96, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(43, 138, 96, 0.22);
+    --app-button-subtle-text: #1c5c42;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #16352a;
+    --app-focus-ring: rgba(43, 138, 96, 0.16);
+    --app-danger-text: #8a3c2c;
+    --app-message-mine: rgba(199, 236, 217, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #94aca1;
+  }
+
+  :root[data-theme="coral"] {
+    --app-bg-start: #f8e7de;
+    --app-bg-end: #ecd3c6;
+    --app-orb-1: rgba(223, 113, 87, 0.22);
+    --app-orb-2: rgba(245, 188, 164, 0.22);
+    --app-surface: rgba(255, 247, 243, 0.9);
+    --app-surface-strong: rgba(255, 250, 247, 0.95);
+    --app-surface-soft: rgba(245, 231, 224, 0.9);
+    --app-border: rgba(125, 67, 54, 0.15);
+    --app-border-strong: rgba(125, 67, 54, 0.22);
+    --app-text: #3d241e;
+    --app-text-muted: #725651;
+    --app-text-soft: #c75f45;
+    --app-accent: #df7157;
+    --app-accent-strong: #a14734;
+    --app-accent-soft: rgba(223, 113, 87, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(223, 113, 87, 0.22);
+    --app-button-subtle-text: #a14734;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #3d241e;
+    --app-focus-ring: rgba(223, 113, 87, 0.16);
+    --app-danger-text: #8f301f;
+    --app-message-mine: rgba(246, 211, 199, 0.85);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #b8a19a;
+  }
+
+  :root[data-theme="amber"] {
+    --app-bg-start: #f7edd8;
+    --app-bg-end: #ecdcb8;
+    --app-orb-1: rgba(214, 151, 53, 0.22);
+    --app-orb-2: rgba(241, 208, 138, 0.22);
+    --app-surface: rgba(255, 250, 242, 0.9);
+    --app-surface-strong: rgba(255, 252, 246, 0.95);
+    --app-surface-soft: rgba(245, 235, 216, 0.9);
+    --app-border: rgba(128, 93, 27, 0.15);
+    --app-border-strong: rgba(128, 93, 27, 0.22);
+    --app-text: #3b2c10;
+    --app-text-muted: #726149;
+    --app-text-soft: #b7791f;
+    --app-accent: #d69735;
+    --app-accent-strong: #9a6917;
+    --app-accent-soft: rgba(214, 151, 53, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.68);
+    --app-button-subtle-border: rgba(214, 151, 53, 0.22);
+    --app-button-subtle-text: #9a6917;
+    --app-input-bg: rgba(255, 255, 255, 0.94);
+    --app-input-text: #3b2c10;
+    --app-focus-ring: rgba(214, 151, 53, 0.16);
+    --app-danger-text: #8e3f1e;
+    --app-message-mine: rgba(245, 225, 182, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.96);
+    --app-offline: #b0a38a;
+  }
+
+  :root[data-theme="mint"] {
+    --app-bg-start: #e2f4ef;
+    --app-bg-end: #cee6de;
+    --app-orb-1: rgba(70, 177, 150, 0.2);
+    --app-orb-2: rgba(171, 235, 218, 0.22);
+    --app-surface: rgba(243, 253, 250, 0.9);
+    --app-surface-strong: rgba(247, 254, 252, 0.95);
+    --app-surface-soft: rgba(229, 246, 241, 0.9);
+    --app-border: rgba(42, 112, 95, 0.14);
+    --app-border-strong: rgba(42, 112, 95, 0.2);
+    --app-text: #14352e;
+    --app-text-muted: #4b6d65;
+    --app-text-soft: #2f9d82;
+    --app-accent: #46b196;
+    --app-accent-strong: #2a705f;
+    --app-accent-soft: rgba(70, 177, 150, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(70, 177, 150, 0.22);
+    --app-button-subtle-text: #2a705f;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #14352e;
+    --app-focus-ring: rgba(70, 177, 150, 0.16);
+    --app-danger-text: #8a3c2c;
+    --app-message-mine: rgba(203, 240, 228, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #92aaa2;
+  }
+
+  :root[data-theme="indigo"] {
+    --app-bg-start: #e6e8f6;
+    --app-bg-end: #d2d7eb;
+    --app-orb-1: rgba(88, 99, 194, 0.22);
+    --app-orb-2: rgba(172, 181, 238, 0.22);
+    --app-surface: rgba(246, 247, 255, 0.9);
+    --app-surface-strong: rgba(249, 250, 255, 0.95);
+    --app-surface-soft: rgba(234, 237, 248, 0.9);
+    --app-border: rgba(58, 65, 129, 0.14);
+    --app-border-strong: rgba(58, 65, 129, 0.2);
+    --app-text: #20284c;
+    --app-text-muted: #555f84;
+    --app-text-soft: #5966c2;
+    --app-accent: #5863c2;
+    --app-accent-strong: #39418d;
+    --app-accent-soft: rgba(88, 99, 194, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(88, 99, 194, 0.22);
+    --app-button-subtle-text: #39418d;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #20284c;
+    --app-focus-ring: rgba(88, 99, 194, 0.16);
+    --app-danger-text: #8a324f;
+    --app-message-mine: rgba(210, 216, 245, 0.85);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #9fa6bf;
+  }
+
+  :root[data-theme="stone"] {
+    --app-bg-start: #efebe6;
+    --app-bg-end: #ddd7d0;
+    --app-orb-1: rgba(135, 122, 108, 0.2);
+    --app-orb-2: rgba(204, 195, 184, 0.22);
+    --app-surface: rgba(250, 248, 245, 0.9);
+    --app-surface-strong: rgba(252, 251, 248, 0.95);
+    --app-surface-soft: rgba(240, 236, 231, 0.9);
+    --app-border: rgba(95, 83, 71, 0.14);
+    --app-border-strong: rgba(95, 83, 71, 0.2);
+    --app-text: #2b241e;
+    --app-text-muted: #665b52;
+    --app-text-soft: #74675d;
+    --app-accent: #8f7b6b;
+    --app-accent-strong: #5e5147;
+    --app-accent-soft: rgba(143, 123, 107, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(143, 123, 107, 0.22);
+    --app-button-subtle-text: #5e5147;
+    --app-input-bg: rgba(255, 255, 255, 0.93);
+    --app-input-text: #2b241e;
+    --app-focus-ring: rgba(143, 123, 107, 0.16);
+    --app-danger-text: #8a4030;
+    --app-message-mine: rgba(226, 219, 210, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #a49a91;
+  }
+
+  :root[data-theme="ruby"] {
+    --app-bg-start: #f4e2e6;
+    --app-bg-end: #e7ccd4;
+    --app-orb-1: rgba(170, 58, 82, 0.22);
+    --app-orb-2: rgba(235, 171, 186, 0.22);
+    --app-surface: rgba(255, 245, 247, 0.9);
+    --app-surface-strong: rgba(255, 248, 249, 0.95);
+    --app-surface-soft: rgba(244, 227, 232, 0.9);
+    --app-border: rgba(107, 34, 50, 0.15);
+    --app-border-strong: rgba(107, 34, 50, 0.22);
+    --app-text: #39151f;
+    --app-text-muted: #6c4b56;
+    --app-text-soft: #aa3a52;
+    --app-accent: #c4425d;
+    --app-accent-strong: #7c2338;
+    --app-accent-soft: rgba(196, 66, 93, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(196, 66, 93, 0.22);
+    --app-button-subtle-text: #7c2338;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #39151f;
+    --app-focus-ring: rgba(196, 66, 93, 0.16);
+    --app-danger-text: #8f1f30;
+    --app-message-mine: rgba(244, 205, 215, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #b39aa0;
+  }
+
+  :root[data-theme="aurora"] {
+    --app-bg-start: #e2f3f2;
+    --app-bg-end: #d7d8f0;
+    --app-orb-1: rgba(66, 179, 164, 0.2);
+    --app-orb-2: rgba(139, 102, 199, 0.18);
+    --app-surface: rgba(245, 251, 252, 0.9);
+    --app-surface-strong: rgba(249, 252, 255, 0.95);
+    --app-surface-soft: rgba(234, 241, 246, 0.9);
+    --app-border: rgba(64, 89, 121, 0.14);
+    --app-border-strong: rgba(64, 89, 121, 0.2);
+    --app-text: #1c2f3e;
+    --app-text-muted: #586b78;
+    --app-text-soft: #5c6fd1;
+    --app-accent: #42b3a4;
+    --app-accent-strong: #5c6fd1;
+    --app-accent-soft: rgba(92, 111, 209, 0.14);
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.66);
+    --app-button-subtle-border: rgba(92, 111, 209, 0.22);
+    --app-button-subtle-text: #3c4da7;
+    --app-input-bg: rgba(255, 255, 255, 0.93);
+    --app-input-text: #1c2f3e;
+    --app-focus-ring: rgba(92, 111, 209, 0.16);
+    --app-danger-text: #8a3a5f;
+    --app-message-mine: rgba(206, 225, 246, 0.84);
+    --app-message-other: rgba(255, 255, 255, 0.95);
+    --app-offline: #97a8b4;
+  }
+
+  :root[data-mode="dark"] {
+    --app-bg-start: #14181d;
+    --app-bg-end: #090c10;
+    --app-surface: rgba(18, 24, 31, 0.88);
+    --app-surface-strong: rgba(24, 30, 38, 0.92);
+    --app-surface-soft: rgba(22, 28, 35, 0.86);
+    --app-border: rgba(255, 255, 255, 0.12);
+    --app-border-strong: rgba(255, 255, 255, 0.18);
+    --app-text: #f7efe7;
+    --app-text-muted: #c8b8ab;
+    --app-text-soft: #f0bb9e;
+    --app-button-subtle-bg: rgba(255, 255, 255, 0.06);
+    --app-button-subtle-border: rgba(255, 255, 255, 0.14);
+    --app-button-subtle-text: #f1d4c5;
+    --app-input-bg: rgba(255, 255, 255, 0.92);
+    --app-input-text: #1f130b;
+    --app-danger-bg: rgba(143, 52, 20, 0.2);
+    --app-danger-border: rgba(255, 180, 154, 0.2);
+    --app-danger-text: #ffd4c3;
+    --app-message-mine: rgba(64, 102, 73, 0.9);
+    --app-message-other: rgba(255, 255, 255, 0.08);
+    --app-offline: #6f7b86;
+  }
+
+  :root[data-mode="dark"][data-theme="forest"] {
+    --app-bg-start: #101915;
+    --app-bg-end: #08100c;
+    --app-surface: rgba(17, 31, 24, 0.9);
+    --app-surface-strong: rgba(21, 36, 28, 0.94);
+    --app-surface-soft: rgba(18, 33, 25, 0.88);
+    --app-text: #ecf6ef;
+    --app-text-muted: #b8cbbd;
+    --app-text-soft: #9fd0ac;
+    --app-accent: #5f9a72;
+    --app-accent-strong: #3c714d;
+    --app-accent-soft: rgba(95, 154, 114, 0.14);
+    --app-button-subtle-text: #d6eadb;
+    --app-focus-ring: rgba(95, 154, 114, 0.18);
+    --app-message-mine: rgba(59, 97, 70, 0.92);
+    --app-message-other: rgba(255, 255, 255, 0.08);
+  }
+
+  :root[data-mode="dark"][data-theme="ocean"] {
+    --app-bg-start: #0d161b;
+    --app-bg-end: #071015;
+    --app-surface: rgba(16, 28, 35, 0.9);
+    --app-surface-strong: rgba(20, 34, 42, 0.94);
+    --app-surface-soft: rgba(18, 31, 39, 0.88);
+    --app-text: #ebf5f8;
+    --app-text-muted: #b4c7d1;
+    --app-text-soft: #9ed3e8;
+    --app-accent: #4e96b8;
+    --app-accent-strong: #26647f;
+    --app-accent-soft: rgba(78, 150, 184, 0.14);
+    --app-button-subtle-text: #d8edf5;
+    --app-focus-ring: rgba(78, 150, 184, 0.18);
+    --app-message-mine: rgba(40, 86, 109, 0.92);
+    --app-message-other: rgba(255, 255, 255, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100vh;
+  }
+
+  body {
+    margin: 0;
+    color: var(--app-text);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background:
+      radial-gradient(circle at top left, color-mix(in srgb, white 72%, transparent), transparent 28%),
+      radial-gradient(circle at right 10%, var(--app-orb-1), transparent 22%),
+      radial-gradient(circle at left 80%, var(--app-orb-2), transparent 26%),
+      linear-gradient(180deg, var(--app-bg-start) 0%, var(--app-bg-end) 100%);
+    transition:
+      background 220ms ease,
+      color 220ms ease;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
